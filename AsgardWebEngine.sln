@@ -18,6 +18,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{EA846D7F-FCD3-4CFB-B15E-05447BC34FFE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E18545D8-CBB0-4C6E-923F-FEF4D2FBE3A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsgardWebEngine.Common.Tests", "AsgardWebEngine.Common.Tests\AsgardWebEngine.Common.Tests.csproj", "{CC79F3FC-A761-4418-9202-DF374BAE0F52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsgardWebEngine.WebJob.Amazon", "AsgardWebEngine.WebJob.Amazon\AsgardWebEngine.WebJob.Amazon.csproj", "{168B1B48-3C74-4793-888C-49989E749CCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsgardWebEngine.WebJob.Steam", "AsgardWebEngine.WebJob.Steam\AsgardWebEngine.WebJob.Steam.csproj", "{26F3BE28-8627-413B-93FC-B6D511E38272}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Services", "Amazon.Services\Amazon.Services.csproj", "{9CBF44B7-A7CF-4764-A691-4D9597C4D900}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,8 +46,27 @@ Global
 		{8365E839-BD67-4E4A-BB17-11CF9EF44C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8365E839-BD67-4E4A-BB17-11CF9EF44C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8365E839-BD67-4E4A-BB17-11CF9EF44C5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC79F3FC-A761-4418-9202-DF374BAE0F52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC79F3FC-A761-4418-9202-DF374BAE0F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC79F3FC-A761-4418-9202-DF374BAE0F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC79F3FC-A761-4418-9202-DF374BAE0F52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{168B1B48-3C74-4793-888C-49989E749CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{168B1B48-3C74-4793-888C-49989E749CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{168B1B48-3C74-4793-888C-49989E749CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{168B1B48-3C74-4793-888C-49989E749CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26F3BE28-8627-413B-93FC-B6D511E38272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26F3BE28-8627-413B-93FC-B6D511E38272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26F3BE28-8627-413B-93FC-B6D511E38272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26F3BE28-8627-413B-93FC-B6D511E38272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CBF44B7-A7CF-4764-A691-4D9597C4D900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CBF44B7-A7CF-4764-A691-4D9597C4D900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CBF44B7-A7CF-4764-A691-4D9597C4D900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CBF44B7-A7CF-4764-A691-4D9597C4D900}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CC79F3FC-A761-4418-9202-DF374BAE0F52} = {E18545D8-CBB0-4C6E-923F-FEF4D2FBE3A9}
 	EndGlobalSection
 EndGlobal
