@@ -11,9 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsgardWebEngine.Common", "A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{F251570C-F677-49EF-BE62-A45CFDAD348D}"
 	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
 		SolutionItems\CodeDictionary.xml = SolutionItems\CodeDictionary.xml
 		SolutionItems\Microsoft.WindowsAzure.Storage.dll = SolutionItems\Microsoft.WindowsAzure.Storage.dll
 		SolutionItems\MultipleOutputHelper.ttinclude = SolutionItems\MultipleOutputHelper.ttinclude
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{EA846D7F-FCD3-4CFB-B15E-05447BC34FFE}"
