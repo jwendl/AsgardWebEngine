@@ -85,6 +85,7 @@
     <Compile Include="Repositories\Interfaces\IDocumentRepository.cs" />
     <Compile Include="Repositories\Interfaces\IImageRepository.cs" />
     <Compile Include="Repositories\Interfaces\IMetadataRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISearchRepository.cs" />
     <Compile Include="Repositories\MetadataRepository.cs" />
     <Compile Include="StorageAccountWrapper.cs" />
   </ItemGroup>

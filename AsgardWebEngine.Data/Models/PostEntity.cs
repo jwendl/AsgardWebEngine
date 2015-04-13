@@ -27,6 +27,14 @@ namespace AsgardWebEngine.Data.Models
         public string RowKey { get; set; }
 
         /// <summary>
+        /// Gets or sets the post identifier.
+        /// </summary>
+        /// <value>
+        /// The post identifier.
+        /// </value>
+        public Guid PostId { get; set; }
+
+        /// <summary>
         /// Gets or sets the category.
         /// </summary>
         /// <value>

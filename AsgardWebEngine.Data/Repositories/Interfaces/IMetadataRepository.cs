@@ -8,7 +8,7 @@ namespace AsgardWebEngine.Data.Repositories.Interfaces
     /// <summary>
     /// 
     /// </summary>
-    public interface IMetadataRepository<TEntity, TPartitionKey, TRowKey>
+    public interface IMetadataRepository<TEntity>
         where TEntity : class, new()
     {
         /// <summary>

@@ -14,6 +14,7 @@ using System.Configuration;
 using Amazon.Services.Extensions;
 using AsgardWebEngine.Business.Extensions;
 using AsgardWebEngine.Common.Interfaces;
+using CloudStorageAccount = Microsoft.WindowsAzure.Storage.CloudStorageAccount;
 
 namespace AsgardWebEngine.WebJob.Amazon
 {
@@ -84,7 +85,7 @@ namespace AsgardWebEngine.WebJob.Amazon
                 using (var webClient = new WebClient())
                 {
                     var bytes = webClient.DownloadData(item.MediumImage.URL);
-                    var cloudStorageAccount = Storage.CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+                    var cloudStorageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
                     var cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
                     var cloudBlobContainer = cloudBlobClient.GetContainerReference(ConfigurationManager.AppSettings["CloudContainerName"]);
                     var cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(amazonWishList.ImageFileName);

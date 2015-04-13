@@ -1,5 +1,6 @@
 ﻿using AsgardWebEngine.Data.Interfaces;
 using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Table;
 using System.Configuration;
 
@@ -28,6 +29,15 @@ namespace AsgardWebEngine.Data
         public CloudTableClient CreateCloudTableClient()
         {
             return cloudStorageAccount.CreateCloudTableClient();
+        }
+
+        /// <summary>
+        /// Creates the cloud BLOB client.
+        /// </summary>
+        /// <returns></returns>
+        public CloudBlobClient CreateCloudBlobClient()
+        {
+            return cloudStorageAccount.CreateCloudBlobClient();
         }
     }
 }

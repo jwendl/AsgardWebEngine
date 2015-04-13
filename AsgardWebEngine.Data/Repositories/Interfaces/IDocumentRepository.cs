@@ -1,17 +1,26 @@
-﻿
+﻿using System.Threading.Tasks;
+
 namespace AsgardWebEngine.Data.Repositories.Interfaces
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface IDocumentRepository<TDocument, TKey>
-        where TDocument : class
+    public interface IDocumentRepository
     {
         /// <summary>
-        /// Gets the specified key.
+        /// Downloads the document asynchronous.
         /// </summary>
-        /// <param name="key">The key.</param>
+        /// <param name="containerName">Name of the container.</param>
+        /// <param name="documentName">Name of the document.</param>
         /// <returns></returns>
-        TDocument Get(TKey key);
+        Task<string> DownloadDocumentAsync(string containerName, string documentName);
+
+        /// <summary>
+        /// Uploads the document asynchronous.
+        /// </summary>
+        /// <param name="containerName">Name of the container.</param>
+        /// <param name="documentName">Name of the document.</param>
+        /// <param name="fileContents">The file contents.</param>
+        void UploadDocumentAsync(string containerName, string documentName, string fileContents);
     }
 }
