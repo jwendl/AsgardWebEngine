@@ -1,10 +1,14 @@
-﻿
-namespace AsgardWebEngine.Common.Interfaces
+﻿using AsgardWebEngine.Business.Interfaces;
+using System;
+using System.Linq;
+
+namespace AsgardWebEngine.Business.Models
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface IAmazonWishList
+    public class AmazonWishList
+        : IBusinessObject
     {
         /// <summary>
         /// Gets or sets the category.
@@ -12,7 +16,7 @@ namespace AsgardWebEngine.Common.Interfaces
         /// <value>
         /// The category.
         /// </value>
-        string Category { get; set; }
+        public string Category { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -20,7 +24,7 @@ namespace AsgardWebEngine.Common.Interfaces
         /// <value>
         /// The name.
         /// </value>
-        string Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -28,7 +32,7 @@ namespace AsgardWebEngine.Common.Interfaces
         /// <value>
         /// The identifier.
         /// </value>
-        string Identifier { get; set; }
+        public string Identifier { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the site.
@@ -36,7 +40,7 @@ namespace AsgardWebEngine.Common.Interfaces
         /// <value>
         /// The name of the site.
         /// </value>
-        string SiteName { get; set; }
+        public string SiteName { get; set; }
 
         /// <summary>
         /// Gets or sets the site URL.
@@ -44,7 +48,7 @@ namespace AsgardWebEngine.Common.Interfaces
         /// <value>
         /// The site URL.
         /// </value>
-        string SiteUrl { get; set; }
+        public Uri SiteUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the site URL.
@@ -52,7 +56,7 @@ namespace AsgardWebEngine.Common.Interfaces
         /// <value>
         /// The site URL.
         /// </value>
-        string ItemUrl { get; set; }
+        public Uri ItemUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the image URL.
@@ -60,7 +64,7 @@ namespace AsgardWebEngine.Common.Interfaces
         /// <value>
         /// The image URL.
         /// </value>
-        string ImageUrl { get; set; }
+        public Uri ImageUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the price.
@@ -68,7 +72,7 @@ namespace AsgardWebEngine.Common.Interfaces
         /// <value>
         /// The price.
         /// </value>
-        decimal Price { get; set; }
+        public decimal Price { get; set; }
 
         /// <summary>
         /// Gets or sets the quantity.
@@ -76,7 +80,7 @@ namespace AsgardWebEngine.Common.Interfaces
         /// <value>
         /// The quantity.
         /// </value>
-        int Quantity { get; set; }
+        public int Quantity { get; set; }
 
         /// <summary>
         /// Gets or sets the description.
@@ -84,6 +88,25 @@ namespace AsgardWebEngine.Common.Interfaces
         /// <value>
         /// The description.
         /// </value>
-        string Description { get; set; }
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets the name of the image file.
+        /// </summary>
+        /// <value>
+        /// The name of the image file.
+        /// </value>
+        public string ImageFileName
+        {
+            get
+            {
+                if (ImageUrl != null)
+                {
+                    return ImageUrl.Segments.Last();
+                }
+
+                return String.Empty;
+            }
+        }
     }
 }

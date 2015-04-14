@@ -21,6 +21,6 @@ namespace AsgardWebEngine.Data.Repositories.Interfaces
         /// <param name="containerName">Name of the container.</param>
         /// <param name="documentName">Name of the document.</param>
         /// <param name="fileContents">The file contents.</param>
-        void UploadDocumentAsync(string containerName, string documentName, string fileContents);
+        Task UploadDocumentAsync(string containerName, string documentName, string fileContents);
     }
 }

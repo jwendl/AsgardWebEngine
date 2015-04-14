@@ -1,124 +1,100 @@
 ﻿using AsgardWebEngine.Business.Interfaces;
-using AsgardWebEngine.Data.Models;
-using AsgardWebEngine.Data.Repositories.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AsgardWebEngine.Business.Models
 {
     /// <summary>
-    /// 
+    /// A business object that represents a Post object
     /// </summary>
     public class Post
-        : IBusinessObject<Post, Guid>
+        : IBusinessObject
     {
-        private IMetadataRepository<PostEntity> postRepository { get; set; }
-
-        private IDocumentRepository documentRepository { get; set; }
-
-        public Post(IMetadataRepository<PostEntity> postRepository, IDocumentRepository documentRepository)
-        {
-            this.postRepository = postRepository;
-            this.documentRepository = documentRepository;
-        }
+        /// <summary>
+        /// Gets or sets the category.
+        /// </summary>
+        /// <value>
+        /// The category.
+        /// </value>
+        public string Category { get; set; }
 
         /// <summary>
-        /// Fetches the specified key.
+        /// Gets or sets the rating.
         /// </summary>
-        /// <param name="key">The key.</param>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public Post Fetch(Guid key)
-        {
-            throw new NotImplementedException();
-        }
+        /// <value>
+        /// The rating.
+        /// </value>
+        public double? Rating { get; set; }
 
         /// <summary>
-        /// Fetches all.
+        /// Gets or sets the raters.
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public IEnumerable<Post> FetchAll()
-        {
-            throw new NotImplementedException();
-        }
+        /// <value>
+        /// The raters.
+        /// </value>
+        public int Raters { get; set; }
 
         /// <summary>
-        /// Fetches all.
+        /// Gets or sets the date created.
         /// </summary>
-        /// <param name="query"></param>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public IEnumerable<Post> FetchAll(System.Linq.Expressions.Expression<Func<Post, bool>> query)
-        {
-            throw new NotImplementedException();
-        }
+        /// <value>
+        /// The date created.
+        /// </value>
+        public DateTime DateCreated { get; set; }
 
         /// <summary>
-        /// Adds the specified item.
+        /// Gets or sets the date modified.
         /// </summary>
-        /// <param name="item">The item.</param>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public Post Add(Post item)
-        {
-            throw new NotImplementedException();
-        }
+        /// <value>
+        /// The date modified.
+        /// </value>
+        public DateTime DateModified { get; set; }
 
         /// <summary>
-        /// Adds the many.
+        /// Gets or sets a value indicating whether this instance is published.
         /// </summary>
-        /// <param name="items">The items.</param>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public IEnumerable<Post> AddMany(IEnumerable<Post> items)
-        {
-            throw new NotImplementedException();
-        }
+        /// <value>
+        /// <c>true</c> if this instance is published; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsPublished { get; set; }
 
         /// <summary>
-        /// Deletes the specified item.
+        /// Gets or sets a value indicating whether [enable comments].
         /// </summary>
-        /// <param name="item">The item.</param>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public void Delete(Post item)
-        {
-            throw new NotImplementedException();
-        }
+        /// <value>
+        ///   <c>true</c> if [enable comments]; otherwise, <c>false</c>.
+        /// </value>
+        public bool EnableComments { get; set; }
 
         /// <summary>
-        /// Deletes the many.
+        /// Gets or sets the title.
         /// </summary>
-        /// <param name="items">The items.</param>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public void DeleteMany(IEnumerable<Post> items)
-        {
-            throw new NotImplementedException();
-        }
+        /// <value>
+        /// The title.
+        /// </value>
+        public string Title { get; set; }
 
         /// <summary>
-        /// Updates the specified item.
+        /// Gets or sets the excerpt.
         /// </summary>
-        /// <param name="item">The item.</param>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public Post Update(Post item)
-        {
-            throw new NotImplementedException();
-        }
+        /// <value>
+        /// The excerpt.
+        /// </value>
+        public string Excerpt { get; set; }
 
         /// <summary>
-        /// Updates the many.
+        /// Gets or sets the post slug.
         /// </summary>
-        /// <param name="items">The items.</param>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public IEnumerable<Post> UpdateMany(IEnumerable<Post> items)
-        {
-            throw new NotImplementedException();
-        }
+        /// <value>
+        /// The post slug.
+        /// </value>
+        public string PostSlug { get; set; }
+
+        /// <summary>
+        /// Gets or sets the content.
+        /// </summary>
+        /// <value>
+        /// The content.
+        /// </value>
+        public string Content { get; set; }
     }
 }

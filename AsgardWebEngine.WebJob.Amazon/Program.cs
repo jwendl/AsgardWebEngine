@@ -15,6 +15,8 @@ using Amazon.Services.Extensions;
 using AsgardWebEngine.Business.Extensions;
 using AsgardWebEngine.Common.Interfaces;
 using CloudStorageAccount = Microsoft.WindowsAzure.Storage.CloudStorageAccount;
+using AsgardWebEngine.Business;
+using AsgardWebEngine.Business.Models;
 
 namespace AsgardWebEngine.WebJob.Amazon
 {
@@ -52,8 +54,8 @@ namespace AsgardWebEngine.WebJob.Amazon
 
             if (items != null)
             {
-                var objectFactory = new ObjectFactory<IWishListEditCollection>();
-                var wishListEditCollection = objectFactory.Fetch(asinList);
+                var objectFactory = new ObjectFactory<Post, Guid>();
+                var wishListEditCollection = objectFactory .Fetch(asinList);
 
                 foreach (var item in items.Item)
                 {
@@ -78,7 +80,7 @@ namespace AsgardWebEngine.WebJob.Amazon
             }
         }
 
-        private static void UploadImageToAzure(Item item, IAmazonWishList amazonWishList)
+        private static void UploadImageToAzure(Item item, AmazonWishList amazonWishList)
         {
             if (amazonWishList.ImageUrl.OriginalString != item.MediumImage.URL)
             {

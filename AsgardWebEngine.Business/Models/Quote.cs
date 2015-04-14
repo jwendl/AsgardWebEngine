@@ -1,10 +1,12 @@
-﻿
-namespace AsgardWebEngine.Common.Interfaces
+﻿using AsgardWebEngine.Business.Interfaces;
+
+namespace AsgardWebEngine.Business.Models
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface IQuote
+    public class Quote
+        : IBusinessObject
     {
         /// <summary>
         /// Gets or sets the author.
@@ -12,7 +14,7 @@ namespace AsgardWebEngine.Common.Interfaces
         /// <value>
         /// The author.
         /// </value>
-        string Author { get; set; }
+        public string Author { get; set; }
 
         /// <summary>
         /// Gets or sets the text.
@@ -20,6 +22,6 @@ namespace AsgardWebEngine.Common.Interfaces
         /// <value>
         /// The text.
         /// </value>
-        string Text { get; set; }
+        public string Text { get; set; }
     }
 }

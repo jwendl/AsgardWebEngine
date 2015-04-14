@@ -1,10 +1,10 @@
 ﻿
-namespace AsgardWebEngine.Common.Interfaces
+namespace AsgardWebEngine.Business.Models
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface ISteamWishList
+    public class SteamWishList
     {
         /// <summary>
         /// Gets or sets the name.

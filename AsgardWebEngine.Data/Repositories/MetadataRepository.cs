@@ -10,15 +10,16 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using WindowsAzure.Table;
 using WindowsAzure.Table.Extensions;
+using ITableEntity = AsgardWebEngine.Data.Interfaces.ITableEntity;
 
 namespace AsgardWebEngine.Data.Repositories
 {
     /// <summary>
-    /// 
+    /// A repository to fetch items from Azure Table Storage
     /// </summary>
-    public class MetadataRepository<TEntity, TPartitionKey, TRowKey>
-        : IMetadataRepository<TEntity, TPartitionKey, TRowKey>
-        where TEntity : class, new()
+    public abstract class MetadataRepository<TEntity>
+        : IMetadataRepository<TEntity>
+        where TEntity : class, ITableEntity, new()
     {
         private CloudTableClient cloudTableClient { get; set; }
         private TableSet<TEntity> tableSet { get; set; }
@@ -144,6 +145,34 @@ namespace AsgardWebEngine.Data.Repositories
         public async Task<IEnumerable<TEntity>> FetchAllAsync()
         {
             return await tableSet.ToListAsync();
+        }
+
+        /// <summary>
+        /// Fetches the specified partition key.
+        /// </summary>
+        /// <param name="partitionKey">The partition key.</param>
+        /// <param name="rowKey">The row key.</param>
+        /// <returns></returns>
+        public TEntity Fetch(string partitionKey, string rowKey)
+        {
+            return tableSet
+                .Where(entity => entity.PartitionKey == partitionKey)
+                .Where(entity => entity.RowKey == rowKey)
+                .Single();
+        }
+
+        /// <summary>
+        /// Fetches the specified partition key.
+        /// </summary>
+        /// <param name="partitionKey">The partition key.</param>
+        /// <param name="rowKey">The row key.</param>
+        /// <returns></returns>
+        public async Task<TEntity> FetchAsync(string partitionKey, string rowKey)
+        {
+            return await tableSet
+                .Where(entity => entity.PartitionKey == partitionKey)
+                .Where(entity => entity.RowKey == rowKey)
+                .SingleAsync();
         }
     }
 }

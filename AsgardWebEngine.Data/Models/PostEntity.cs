@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AsgardWebEngine.Data.Interfaces;
+using System;
 using WindowsAzure.Table.Attributes;
 
 namespace AsgardWebEngine.Data.Models
@@ -7,6 +8,7 @@ namespace AsgardWebEngine.Data.Models
     /// 
     /// </summary>
     public class PostEntity
+        : ITableEntity
     {
         /// <summary>
         /// Gets or sets the partition key.

@@ -50,11 +50,13 @@
   <ItemGroup>
     <Compile Include="Args.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Interfaces\IAmazonWishList.cs" />
-    <Compile Include="Interfaces\IPost.cs" />
-    <Compile Include="Interfaces\IQuote.cs" />
-    <Compile Include="Interfaces\ISteamWishList.cs" />
+    <Compile Include="Interfaces\IContainerWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\SolutionItems\CodeDictionary.xml">
+      <Link>CodeDictionary.xml</Link>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

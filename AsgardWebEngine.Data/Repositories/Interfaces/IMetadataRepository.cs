@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AsgardWebEngine.Data.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace AsgardWebEngine.Data.Repositories.Interfaces
     /// 
     /// </summary>
     public interface IMetadataRepository<TEntity>
-        where TEntity : class, new()
+        where TEntity : class, ITableEntity, new()
     {
         /// <summary>
         /// Creates the table.
@@ -77,5 +78,21 @@ namespace AsgardWebEngine.Data.Repositories.Interfaces
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<TEntity>> FetchAllAsync();
+
+        /// <summary>
+        /// Fetches the specified partition key.
+        /// </summary>
+        /// <param name="partitionKey">The partition key.</param>
+        /// <param name="rowKey">The row key.</param>
+        /// <returns></returns>
+        TEntity Fetch(string partitionKey, string rowKey);
+
+        /// <summary>
+        /// Fetches the specified partition key.
+        /// </summary>
+        /// <param name="partitionKey">The partition key.</param>
+        /// <param name="rowKey">The row key.</param>
+        /// <returns></returns>
+        Task<TEntity> FetchAsync(string partitionKey, string rowKey);
     }
 }

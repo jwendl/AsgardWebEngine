@@ -1,8 +1,10 @@
-﻿using WindowsAzure.Table.Attributes;
+﻿using AsgardWebEngine.Data.Interfaces;
+using WindowsAzure.Table.Attributes;
 
 namespace AsgardWebEngine.Data.Models
 {
     public class QuoteEntity
+        : ITableEntity
     {
         /// <summary>
         /// Gets or sets the partition key.
