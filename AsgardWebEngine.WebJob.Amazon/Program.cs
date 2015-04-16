@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-using AsgardWebEngine.Common;
-using Amazon.Services;
-using System.Net;
+﻿using Amazon.Services;
 using Amazon.Services.ECS;
-using Microsoft.WindowsAzure;
-using System.Configuration;
 using Amazon.Services.Extensions;
 using AsgardWebEngine.Business.Extensions;
-using AsgardWebEngine.Common.Interfaces;
-using CloudStorageAccount = Microsoft.WindowsAzure.Storage.CloudStorageAccount;
-using AsgardWebEngine.Business;
+using AsgardWebEngine.Business.Framework;
+using AsgardWebEngine.Business.Interfaces;
 using AsgardWebEngine.Business.Models;
+using AsgardWebEngine.Common;
+using Castle.Windsor;
+using Microsoft.Azure;
+using Microsoft.Azure.WebJobs;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Net;
+using CloudStorageAccount = Microsoft.WindowsAzure.Storage.CloudStorageAccount;
 
 namespace AsgardWebEngine.WebJob.Amazon
 {
@@ -51,32 +49,37 @@ namespace AsgardWebEngine.WebJob.Amazon
 
             var itemsQuery = EcsLookup.GetItemsFromAsinList(asinList);
             var items = itemsQuery.FirstOrDefault();
-
-            if (items != null)
+            using (var windsorContainer = new WindsorContainer())
             {
-                var objectFactory = new ObjectFactory<Post, Guid>();
-                var wishListEditCollection = objectFactory .Fetch(asinList);
+                var containerWrapper = new WindsorContainerWrapper(windsorContainer);
+                containerWrapper.RegisterAllInstances();
 
-                foreach (var item in items.Item)
+                if (items != null)
                 {
-                    var wishListEdit = wishListEditCollection
-                        .Where(we => we.Identifier == item.ASIN)
-                        .FirstOrDefault();
+                    var amazonWishListCollection = containerWrapper.Resolve<IBusinessObjectCollection<AmazonWishList>>();
+                    var wishListEditCollection = amazonWishListCollection.Query(awl => asinList.Contains(awl.Identifier));
 
-                    UploadImageToAzure(item, wishListEdit);
+                    foreach (var item in items.Item)
+                    {
+                        var wishListEdit = wishListEditCollection
+                            .Where(we => we.Identifier == item.ASIN)
+                            .FirstOrDefault();
 
-                    wishListEdit.Identifier = item.ASIN;
-                    wishListEdit.Name = item.ItemAttributes.Title;
-                    wishListEdit.ImageUrl = item.MediumImage.URL.ToUri();
-                    wishListEdit.Category = item.ItemAttributes.Binding;
-                    wishListEdit.SiteUrl = item.DetailPageURL.ToUri();
-                    wishListEdit.Description = item.ItemAttributes.Feature.ExplodeList();
-                    wishListEdit.Price = item.GetPrice();
-                    wishListEdit.SiteName = "Amazon";
-                    wishListEdit.SiteUrl = new Uri("http://www.amazon.com/");
+                        UploadImageToAzure(item, wishListEdit);
+
+                        wishListEdit.Identifier = item.ASIN;
+                        wishListEdit.Name = item.ItemAttributes.Title;
+                        wishListEdit.ImageUrl = item.MediumImage.URL.ToUri();
+                        wishListEdit.Category = item.ItemAttributes.Binding;
+                        wishListEdit.SiteUrl = item.DetailPageURL.ToUri();
+                        wishListEdit.Description = item.ItemAttributes.Feature.ExplodeList();
+                        wishListEdit.Price = item.GetPrice();
+                        wishListEdit.SiteName = "Amazon";
+                        wishListEdit.SiteUrl = new Uri("http://www.amazon.com/");
+                    }
+
+                    wishListEditCollection.Save();
                 }
-
-                wishListEditCollection.Save();
             }
         }
 

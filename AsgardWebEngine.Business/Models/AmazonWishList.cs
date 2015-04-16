@@ -8,7 +8,7 @@ namespace AsgardWebEngine.Business.Models
     /// 
     /// </summary>
     public class AmazonWishList
-        : IBusinessObject
+        : IBusinessObject<AmazonWishList>
     {
         /// <summary>
         /// Gets or sets the category.

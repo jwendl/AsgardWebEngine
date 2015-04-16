@@ -7,7 +7,7 @@ namespace AsgardWebEngine.Business.Models
     /// A business object that represents a Post object
     /// </summary>
     public class Post
-        : IBusinessObject
+        : IBusinessObject<Post>
     {
         /// <summary>
         /// Gets or sets the category.

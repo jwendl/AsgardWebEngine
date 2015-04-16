@@ -75,6 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interfaces\IStorageAccountWrapper.cs" />
     <Compile Include="Interfaces\ITableEntity.cs" />
@@ -90,7 +91,6 @@
     <Compile Include="Repositories\Interfaces\IMetadataRepository.cs" />
     <Compile Include="Repositories\Interfaces\ISearchRepository.cs" />
     <Compile Include="Repositories\MetadataRepository.cs" />
-    <Compile Include="Repositories\PostMetadataRepository.cs" />
     <Compile Include="StorageAccountWrapper.cs" />
   </ItemGroup>
   <ItemGroup>

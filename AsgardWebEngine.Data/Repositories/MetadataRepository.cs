@@ -17,7 +17,7 @@ namespace AsgardWebEngine.Data.Repositories
     /// <summary>
     /// A repository to fetch items from Azure Table Storage
     /// </summary>
-    public abstract class MetadataRepository<TEntity>
+    public class MetadataRepository<TEntity>
         : IMetadataRepository<TEntity>
         where TEntity : class, ITableEntity, new()
     {
@@ -78,6 +78,18 @@ namespace AsgardWebEngine.Data.Repositories
         public async Task RemoveAsync(TEntity item)
         {
             await tableSet.RemoveAsync(item);
+        }
+
+        /// <summary>
+        /// Updates all.
+        /// </summary>
+        /// <param name="items">The items.</param>
+        public void UpdateAll(IEnumerable<TEntity> items)
+        {
+            foreach (var item in items)
+            {
+                tableSet.Update(item);
+            }
         }
 
         /// <summary>

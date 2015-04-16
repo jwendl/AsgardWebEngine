@@ -40,6 +40,12 @@ namespace AsgardWebEngine.Data.Repositories.Interfaces
         Task RemoveAsync(TEntity item);
 
         /// <summary>
+        /// Updates all.
+        /// </summary>
+        /// <param name="items">The items.</param>
+        void UpdateAll(IEnumerable<TEntity> items);
+
+        /// <summary>
         /// Asynchronously updates the item.
         /// </summary>
         /// <param name="item">The item.</param>

@@ -1,12 +1,10 @@
-﻿using AsgardWebEngine.Business.Interfaces;
-
+﻿
 namespace AsgardWebEngine.Business.Models
 {
     /// <summary>
     /// 
     /// </summary>
     public class Quote
-        : IBusinessObject
     {
         /// <summary>
         /// Gets or sets the author.
