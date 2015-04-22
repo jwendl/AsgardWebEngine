@@ -1,5 +1,6 @@
 ﻿using AsgardWebEngine.Data.Models;
 using AsgardWebEngine.Data.Repositories.Interfaces;
+using AsgardWebEngine.Framework.Models;
 
 namespace AsgardWebEngine.Business.Models
 {
@@ -7,7 +8,7 @@ namespace AsgardWebEngine.Business.Models
     /// 
     /// </summary>
     public class AmazonWishListCollection
-        : BaseMetadataObjectCollection<AmazonWishList, AmazonWishListEntity>
+        : BaseBusinessObjectCollection<AmazonWishList, AmazonWishListEntity>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AmazonWishListCollection"/> class.

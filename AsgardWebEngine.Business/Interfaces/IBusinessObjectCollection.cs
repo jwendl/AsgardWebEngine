@@ -11,7 +11,7 @@ namespace AsgardWebEngine.Business.Interfaces
     /// <typeparam name="TBusinessObject">The type of the business object.</typeparam>
     public interface IBusinessObjectCollection<TBusinessObject>
         : IEnumerable<TBusinessObject>
-        where TBusinessObject : IBusinessObject<TBusinessObject>
+        where TBusinessObject : IBusinessObject
     {
         /// <summary>
         /// Fetches this instance.

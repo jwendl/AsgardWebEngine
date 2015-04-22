@@ -9,16 +9,16 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace AsgardWebEngine.Business.Models
+namespace AsgardWebEngine.Framework.Models
 {
     /// <summary>
-    /// 
+    /// A base business object for metadata style queries.
     /// </summary>
     /// <typeparam name="TBusinessObject">The type of the business object.</typeparam>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    public class BaseMetadataObjectCollection<TBusinessObject, TEntity>
+    public class BaseBusinessObjectCollection<TBusinessObject, TEntity>
         : IBusinessObjectCollection<TBusinessObject>
-        where TBusinessObject : IBusinessObject<TBusinessObject>
+        where TBusinessObject : IBusinessObject
         where TEntity : class, ITableEntity, new()
     {
         /// <summary>
@@ -30,10 +30,10 @@ namespace AsgardWebEngine.Business.Models
         protected IMetadataRepository<TEntity> MetadataRepository { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BaseMetadataObjectCollection{TBusinessObject, TEntity}" /> class.
+        /// Initializes a new instance of the <see cref="BaseBusinessObjectCollection{TBusinessObject, TEntity}" /> class.
         /// </summary>
         /// <param name="metadataRepository">The metadata repository.</param>
-        public BaseMetadataObjectCollection(IMetadataRepository<TEntity> metadataRepository)
+        public BaseBusinessObjectCollection(IMetadataRepository<TEntity> metadataRepository)
         {
             this.MetadataRepository = metadataRepository;
         }

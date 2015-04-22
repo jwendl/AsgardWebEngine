@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\ValidationException.cs" />
     <Compile Include="Framework\WindsorContainerWrapper.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Framework\TableStorageKey.cs" />
@@ -75,7 +76,8 @@
     <Compile Include="Interfaces\IBusinessObjectCollection.cs" />
     <Compile Include="Models\AmazonWishList.cs" />
     <Compile Include="Models\AmazonWishListCollection.cs" />
-    <Compile Include="Models\BaseMetadataObjectCollection.cs" />
+    <Compile Include="Framework\BaseBusinessObject.cs" />
+    <Compile Include="Framework\BaseBusinessObjectCollection.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Quote.cs" />
     <Compile Include="Models\SteamWishList.cs" />
@@ -100,6 +102,7 @@
       <Link>CodeDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

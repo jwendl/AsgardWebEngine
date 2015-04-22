@@ -1,4 +1,4 @@
-﻿using AsgardWebEngine.Business.Interfaces;
+﻿using AsgardWebEngine.Framework.Models;
 using System;
 using System.Linq;
 
@@ -8,7 +8,7 @@ namespace AsgardWebEngine.Business.Models
     /// 
     /// </summary>
     public class AmazonWishList
-        : IBusinessObject<AmazonWishList>
+        : BaseBusinessObject
     {
         /// <summary>
         /// Gets or sets the category.
